@@ -23,11 +23,17 @@ function getResults(search){
   fetch(url)
   .then(response => response.json())
   .then(responseJson => 
-  console.log(responseJson));
+  displayResults(responseJson));
 }
 
-function displayResults(){
-  $(".output").html(``)
+function displayResults(responseJson){
+    console.log(responseJson);
+    $(".output").empty();
+    for (let i = 0; i < responseJson.length; i++){
+        $(".output").html(`
+        <h3>${responseJson[i].name}</h3>
+        <p>${responseJson[i].html_url}</p>
+        `)};
 }
 
 
