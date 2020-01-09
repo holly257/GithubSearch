@@ -32,7 +32,7 @@ function displayResults(responseJson){
     for (let i = 0; i < responseJson.length; i++){
         $(".output").html(`
         <h3>${responseJson[i].name}</h3>
-        <p>${responseJson[i].html_url}</p>
+        <a href="${responseJson[i].html_url}">${responseJson[i].html_url}</a>
         `)};
 }
 
@@ -42,7 +42,6 @@ function watchForm(){
   event.preventDefault();
   const search = $("input").val();
   getResults(search);
-  
   });
 }
 
